@@ -4,13 +4,18 @@ using System.Text;
 
 namespace TaskManager
 {
+    public static  class IsChanged
+    {
+        public static bool isChanged;
+    }
     public class TaskModel
     {
-        public string Description;
+        public string Description { get; set; }
         public DateTime Start_date;
         public DateTime? End_date;
         public bool All_day;
         public bool? Relevance;
+
 
         public TaskModel() { }
         public TaskModel(string description, DateTime start_date, DateTime end_date, bool? relevance)
@@ -53,7 +58,7 @@ namespace TaskManager
                 }
                 else
                     Description = command;
-            } while (command.Length>60);
+            } while (command.Length > 60); //pobieranie nazwy zadania
 
             bool isParse;
             do
@@ -124,13 +129,13 @@ namespace TaskManager
                 {
                     Relevance = null;
                 }
+                
 
             } while (command != "t" && command != "n" && command != "w" && command != "m");
             Console.WriteLine($"Zadanie \"{Description}\" pomyślnie dodano do listy");
+            IsChanged.isChanged = true;
+           
         }
-
-        
-
 
     }
 }

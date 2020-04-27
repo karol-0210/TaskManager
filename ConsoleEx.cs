@@ -6,6 +6,7 @@ namespace TaskManager
 {
     public static class ConsoleEx
     {
+
         public static void Write(string text, ConsoleColor text_color)
         {
             Console.ForegroundColor = text_color;
